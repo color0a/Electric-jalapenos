@@ -1,0 +1,212 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+ 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ 
+        <title>Electric Jalapeños</title>
+ 
+        <link href="stylesheet.css" rel="stylesheet" type="text/css" />
+             <style type="text/css">
+                 body {
+                    background-color: #d9d9d9;
+                      }
+             </style>
+
+
+ 
+<script type="text/javascript" src="jQuery.js"></script>
+</head>
+ 
+<body> 
+<div class="header" style="margin:0 auto;">    
+                <div class="banner">
+                <img src="Bilder etc/BANNNENNNENENNE.jpg">
+                
+                		<div class="Hjem">    
+                        <div class="wrapper"><a class="third after" href="#">Hjem</a></div>
+				
+                
+                		<div class="Kundeservice">    
+                        <div class="wrapper"><a class="third after" href="#">Kundeservice</a></div>
+                        
+                        
+                        <div class="Handlekurv">    
+                        <div class="wrapper"><a class="third after" href="#">Handlekurv</a></div>
+                        
+                        
+                        <div class="Login">    
+                        <div class="wrapper"><a class="third after" href="#">Login</a></div>
+                        
+              <div class="searchbar">          
+	<div id="tfheader">
+		<form id="tfnewsearch" method="get" action="http://www.google.com">
+		        <input type="text" class="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+		</form>
+	<div class="tfclear"></div>
+	</div>
+    </div>
+                        
+                  </div>      
+                  			</div>
+                  		</div>
+                    </div>
+				</div>
+  			</div>  
+ 		 </div>          
+        </div>
+        
+
+         
+ <div id="menybar"></div>
+
+
+<div class="menyy">    
+<nav>
+<ul class="dropdown">
+            <li class="drop"><a href="#">Really Tall Menu</a>
+                <ul class="sub_menu">
+                            <li><a href="#">Lorem</a></li>
+                            <li><a href="#">Ipsum</a></li>
+                            <li><a href="#">Dolor</a></li>
+                            <li><a href="#">Lipsum</a></li>
+                            <li><a href="#">Consectetur </a></li>
+                            <li><a href="#">Duis</a></li>
+                            <li><a href="#">Sed</a></li>
+                            <li><a href="#">Natus</a></li>
+                            <li><a href="#">Excepteur</a></li>
+                            <li><a href="#">Voluptas</a></li>
+                            <li><a href="#">Voluptate</a></li>
+                            <li><a href="#">Malorum</a></li>
+                            <li><a href="#">Bonorum</a></li>
+                            <li><a href="#">Nemo</a></li>
+                            <li><a href="#">Quisquam</a></li>
+                            <li><a href="#">Adipisci </a></li>
+                            <li><a href="#">Excepteur</a></li>
+                            <li><a href="#">Consectetur </a></li>
+                            <li><a href="#">Duis</a></li>
+                            <li><a href="#">Voluptate</a></li>
+                            <li><a href="#">Ipsum</a></li>
+                            <li><a href="#">Dolor</a></li>
+                            <li><a href="#">Lipsum</a></li>
+                </ul>
+            </li>
+            <li class="drop"><a href="#">Kinda Tall Menu</a>
+                <ul class="sub_menu">
+                    <li><a href="#">Lorem</a></li>
+                            <li><a href="#">Ipsum</a></li>
+                            <li><a href="#">Dolor</a></li>
+                            <li><a href="#">Lipsum</a></li>
+                            <li><a href="#">Consectetur </a></li>
+                            <li><a href="#">Duis</a></li>
+                            <li><a href="#">Sed</a></li>
+                            <li><a href="#">Natus</a></li>
+                            <li><a href="#">Excepteur</a></li>
+                            <li><a href="#">Voluptas</a></li>
+                            <li><a href="#">Voluptate</a></li>
+                            <li><a href="#">Malorum</a></li>
+                            <li><a href="#">Bonorum</a></li>
+                            <li><a href="#">Nemo</a></li>
+                            <li><a href="#">Quisquam</a></li>
+                            
+                </ul>
+            </li>
+            <li class="drop"><a href="#">Average Menu</a>
+                <ul class="sub_menu">
+                    <li><a href="#">Lorem</a></li>
+                            <li><a href="#">Ipsum</a></li>
+                            <li><a href="#">Dolor</a></li>
+                            <li><a href="#">Lipsum</a></li>
+                            <li><a href="#">Consectetur </a></li>
+                </ul>
+            </li>
+            <li><a href="#">No Menu</a>
+            </li>
+        </ul>
+</nav> 
+</div>
+
+
+
+<script>
+var maxHeight = 400;
+
+$(function(){
+
+    $(".dropdown > li").hover(function() {
+    
+         var $container = $(this),
+             $list = $container.find("ul"),
+             $anchor = $container.find("a"),
+             height = $list.height() * 1.1,       // make sure there is enough room at the bottom
+             multiplier = height / maxHeight;     // needs to move faster if list is taller
+        
+        // need to save height here so it can revert on mouseout            
+        $container.data("origHeight", $container.height());
+        
+        // so it can retain it's rollover color all the while the dropdown is open
+        $anchor.addClass("hover");
+        
+        // make sure dropdown appears directly below parent list item    
+        $list
+            .show()
+            .css({
+                paddingTop: $container.data("origHeight")
+            });
+        
+        // don't do any animation if list shorter than max
+        if (multiplier > 1) {
+            $container
+                .css({
+                    height: maxHeight,
+                    overflow: "hidden"
+                })
+                .mousemove(function(e) {
+                    var offset = $container.offset();
+                    var relativeY = ((e.pageY - offset.top) * multiplier) - ($container.data("origHeight") * multiplier);
+                    if (relativeY > $container.data("origHeight")) {
+                        $list.css("top", -relativeY + $container.data("origHeight"));
+                    };
+                });
+        }
+        
+    }, function() {
+    
+        var $el = $(this);
+        
+        // put things back to normal
+        $el
+            .height($(this).data("origHeight"))
+            .find("ul")
+            .css({ top: 0 })
+            .hide()
+            .end()
+            .find("a")
+            .removeClass("hover");
+    
+    });  
+    
+});
+</script>
+
+
+
+
+<div class="Textfelt" style="margin:0 auto;"></div>
+
+
+
+                        <div class="Hvitevarer">Hvitevarer</div>
+                
+                
+                        <div class="Lydogbilde">Lyd og bilde</div>
+                        
+                        
+                        <div class="Data">Data</div>
+                        
+                        
+                        <div class="Fotoogvideo">Foto og video</div>
+
+
+</body> 
+</html>
